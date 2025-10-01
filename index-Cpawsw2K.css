@@ -1,0 +1,30 @@
+/*/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+
+/* ===== Fallback CSS adicionado automaticamente (não depende de Tailwind build) ===== */
+:root{
+  --background:#f8f8f8;
+  --foreground:#333333;
+  --border:#e0e0e0;
+  --radius:0.5rem;
+  --card:#ffffff;
+  --ring:#0a3d62;
+}
+
+* { box-sizing: border-box; border-color: var(--border); outline-color: var(--ring); }
+
+/* equivalentes simples para alguns @apply usados */
+body { background: var(--background); color: var(--foreground); font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; }
+h1,h2,h3,h4,h5,h6 { font-family: serif; }
+
+/* utilitários simples usados no layout */
+.rounded-lg { border-radius: var(--radius); }
+.bg-card { background: var(--card); color: var(--foreground); }
+/* Fim do fallback */

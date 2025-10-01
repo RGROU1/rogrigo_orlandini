@@ -1,0 +1,8 @@
+/*/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+/*  ... comentado */
+
+/* Fallback (produção) */
+body { background: var(--background, #f8f8f8); color: var(--foreground, #333); margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; }
+#root { min-height:100vh; display:flex; align-items:center; justify-content:center; }

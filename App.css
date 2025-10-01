@@ -1,0 +1,126 @@
+/* Reset e Variáveis */
+:root {
+    --primary-color: #0a3d62; /* Azul escuro, inspirado em Dickinson Wright */
+    --secondary-color: #D4AF37; /* Dourado/Ouro como destaque */
+    --dark-gray: #333333;
+    --light-gray: #f4f4f4;
+    --white: #ffffff;
+    --font-serif: 'Lora', serif;
+    --font-sans: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans );
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho */
+.header {
+    background: var(--white);
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Seção Hero */
+.hero {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Seções de Conteúdo */
+.content-section {
+    padding: 4rem 0;
+}
+
+.content-section h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.bg-light {
+    background: var(--light-gray);
+}
+
+/* Cards */
+.card-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    flex: 1;
+    max-width: 320px;
+}
+
+.card h3 {
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* Rodapé */
+.footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
