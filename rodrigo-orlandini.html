@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rodrigo Orlandini — Advocacia Resolutiva</title>
+  <meta name="description" content="Rodrigo Orlandini integra direito antitruste, resolução de conflitos e psicanálise para resolver questões complexas — antes e melhor que o judiciário." />
+  <meta property="og:title" content="Rodrigo Orlandini — Advocacia Resolutiva" />
+  <meta property="og:description" content="Soluções inteligentes para problemas complexos — antes do judiciário, com mais eficiência, menos desgaste e mais resultado." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts — Cormorant Garamond (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────────────── */
+    :root {
+      --navy:       #0A1929;
+      --navy-mid:   #1E3A5F;
+      --navy-light: #22405a;
+      --gold:       #C9A961;
+      --gold-dim:   rgba(201,169,97,0.15);
+      --gold-border:rgba(201,169,97,0.28);
+      --off-white:  #F8F7F4;
+      --warm-white: #F2F0EC;
+      --charcoal:   #2D2D2D;
+      --ink:        #1a1a1a;
+      --stone:      #8B8680;
+      --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --serif:      'Cormorant Garamond', 'Adobe Garamond Pro', Georgia, serif;
+      --sans:       'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ─── RESET ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--charcoal);
+      background: var(--off-white);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ─── FILM GRAIN OVERLAY ──────────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+
+    /* ─── LAYOUT UTILS ────────────────────────────────────────────── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+    @media (max-width: 768px) { .container { padding: 0 28px; } }
+    @media (max-width: 480px) { .container { padding: 0 20px; } }
+
+    /* ─── SCROLL REVEAL ───────────────────────────────────────────── */
+    .r {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .r.v { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.10s; }
+    .d2 { transition-delay: 0.20s; }
+    .d3 { transition-delay: 0.30s; }
+    .d4 { transition-delay: 0.42s; }
+
+    /* ─── TYPOGRAPHY PRIMITIVES ───────────────────────────────────── */
+    .label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .display {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.10;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+
+    .display--xl  { font-size: clamp(2.8rem, 5.5vw, 4.6rem); }
+    .display--lg  { font-size: clamp(2.1rem, 3.8vw, 3.4rem); }
+    .display--md  { font-size: clamp(1.5rem, 2.5vw, 2.2rem); }
+
+    .display--light { color: var(--off-white); }
+    .display--gold  { color: var(--gold); }
+
+    .body {
+      font-family: var(--sans);
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4a4747;
+    }
+
+    .body--light { color: rgba(248,247,244,0.65); }
+    .body strong  { color: var(--charcoal); font-weight: 400; }
+    .body--light strong { color: rgba(248,247,244,0.9); font-weight: 400; }
+
+    /* Gold rule */
+    .rule {
+      display: block;
+      width: 44px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 28px;
+    }
+    .rule--center { margin-inline: auto; }
+
+    /* ─── BUTTONS ─────────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 38px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.35s var(--ease), color 0.35s var(--ease);
+      white-space: nowrap;
+    }
+    .btn:hover, .btn:focus { background: var(--gold); color: var(--navy); outline: none; }
+    .btn--fill { background: var(--gold); color: var(--navy); }
+    .btn--fill:hover { background: transparent; color: var(--gold); }
+
+    .ghost-link {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: rgba(248,247,244,0.5);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .ghost-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ─── HEADER ──────────────────────────────────────────────────── */
+    #hdr {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 200;
+      padding: 22px 0;
+      transition: background 0.5s var(--ease), padding 0.4s var(--ease);
+    }
+    #hdr.s {
+      background: rgba(8, 20, 34, 0.93);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,169,97,0.08);
+    }
+    #hdr .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--off-white);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo em { font-style: normal; color: var(--gold); }
+
+    nav { display: flex; align-items: center; gap: 36px; }
+    nav a {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(248,247,244,0.62);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--off-white); }
+
+    .hdr-cta {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(201,169,97,0.38);
+      padding: 9px 22px;
+      transition: background 0.3s, color 0.3s;
+      white-space: nowrap;
+    }
+    .hdr-cta:hover { background: var(--gold); color: var(--navy); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1px; background: rgba(248,247,244,0.8); transition: 0.3s; }
+
+    @media (max-width: 960px) {
+      .hamburger { display: flex; }
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: rgba(8,20,34,0.97);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 36px 48px 40px;
+        gap: 24px;
+        border-bottom: 1px solid rgba(201,169,97,0.10);
+      }
+      nav.open { display: flex; }
+      .hdr-cta { display: none; }
+      nav a { font-size: 0.8rem; color: rgba(248,247,244,0.75); }
+    }
+    @media (max-width: 480px) { nav { padding: 32px 24px 36px; } }
+
+    /* ─── HERO ────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100dvh;
+      background-color: var(--navy);
+      background-image: url("https://photoshop-api.adobe.io/v2/short-url/urn:aaid:ps:US:3a924ac1-268b-4cf8-a818-84bebd75f367");
+      background-size: cover;
+      background-position: center 30%;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Deep overlay so text always reads cleanly */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(10,25,41,0.92) 0%,
+        rgba(10,25,41,0.72) 55%,
+        rgba(10,25,41,0.50) 100%
+      );
+    }
+
+    /* Grid lines — subtle geometric texture */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(to right,  rgba(201,169,97,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(201,169,97,0.04) 1px, transparent 1px);
+      background-size: 88px 88px;
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 148px 0 108px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.64rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 30px;
+    }
+
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5.2vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.09;
+      color: var(--off-white);
+      margin-bottom: 36px;
+      letter-spacing: -0.015em;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-sub {
+      font-size: 0.92rem;
+      line-height: 1.85;
+      color: rgba(248,247,244,0.60);
+      max-width: 500px;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+
+    /* Right panel — abstract geometric */
+    .hero-panel {
+      position: relative;
+      height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-geo svg { width: 100%; height: 100%; }
+
+    .hero-aside {
+      position: absolute;
+      bottom: 52px;
+      left: 0; right: 0;
+      padding: 26px 30px;
+      border-left: 2px solid var(--gold);
+      background: rgba(10,25,41,0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero-aside p {
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(248,247,244,0.78);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 960px) {
+      .hero-wrap { grid-template-columns: 1fr; padding: 130px 0 90px; gap: 0; }
+      .hero-panel { display: none; }
+      .hero-sub { max-width: 100%; }
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────────────────── */
+    section { padding: 128px 0; }
+    @media (max-width: 768px) { section { padding: 88px 0; } }
+    @media (max-width: 480px) { section { padding: 72px 0; } }
+
+    /* ─── CONCEITO ────────────────────────────────────────────────── */
+    #conceito { background: var(--off-white); }
+
+    .conceito-body {
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .conceito-body .rule { margin-bottom: 20px; }
+
+    .conceito-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2.3vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--navy-mid);
+      margin: 44px 0;
+      padding: 40px 44px;
+      border: 1px solid var(--gold-border);
+      position: relative;
+    }
+
+    .conceito-quote::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 40px; right: 40px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .conceito-paras { text-align: left; }
+    .conceito-paras p + p { margin-top: 20px; }
+
+    /* ─── COMO ATUO ───────────────────────────────────────────────── */
+    #como-atuo { background: var(--warm-white); }
+
+    .atuo-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 120px;
+      align-items: start;
+    }
+
+    .atuo-sticky { position: sticky; top: 128px; }
+
+    .atuo-title { margin-top: 24px; }
+
+    .atuo-paras { display: flex; flex-direction: column; gap: 26px; }
+
+    .highlight-box {
+      margin-top: 44px;
+      padding: 32px 36px;
+      border-left: 2px solid var(--gold);
+      background: rgba(201,169,97,0.05);
+    }
+
+    .highlight-box p {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.60;
+      color: var(--navy);
+    }
+
+    @media (max-width: 960px) {
+      .atuo-grid { grid-template-columns: 1fr; gap: 52px; }
+      .atuo-sticky { position: static; }
+    }
+
+    /* ─── QUEM É ──────────────────────────────────────────────────── */
+    #quem-e { background: var(--navy); overflow: hidden; }
+
+    .quem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    /* Portrait placeholder — monogram frame */
+    .portrait {
+      position: relative;
+      height: 580px;
+    }
+
+    .portrait-outer {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(201,169,97,0.20);
+    }
+
+    .portrait-inner {
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(201,169,97,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #1a2e42 0%, var(--navy) 100%);
+      overflow: hidden;
+    }
+
+    /* Architectural line pattern behind monogram */
+    .portrait-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right,  rgba(201,169,97,0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(201,169,97,0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    .monogram {
+      font-family: var(--serif);
+      font-size: 9rem;
+      font-weight: 300;
+      color: rgba(201,169,97,0.18);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      position: relative;
+      user-select: none;
+    }
+
+    .portrait-caption {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: rgba(201,169,97,0.40);
+    }
+
+    /* Corner accent marks */
+    .corner { position: absolute; width: 18px; height: 18px; }
+    .corner--tl { top: -1px; left: -1px; border-top: 1.5px solid var(--gold); border-left: 1.5px solid var(--gold); }
+    .corner--tr { top: -1px; right: -1px; border-top: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold); }
+    .corner--bl { bottom: -1px; left: -1px; border-bottom: 1.5px solid var(--gold); border-left: 1.5px solid var(--gold); }
+    .corner--br { bottom: -1px; right: -1px; border-bottom: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold); }
+
+    .quem-text { }
+    .quem-body { margin-top: 40px; display: flex; flex-direction: column; gap: 22px; }
+
+    .pillars {
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(201,169,97,0.10);
+    }
+    .pillar:first-child { border-top: 1px solid rgba(201,169,97,0.10); }
+
+    .pillar-num {
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      color: rgba(201,169,97,0.55);
+      padding-top: 2px;
+    }
+
+    .pillar-text {
+      font-family: var(--sans);
+      font-size: 0.84rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(248,247,244,0.52);
+    }
+    .pillar-text strong { color: rgba(248,247,244,0.82); font-weight: 400; }
+
+    @media (max-width: 960px) {
+      .quem-grid { grid-template-columns: 1fr; gap: 60px; }
+      .portrait { height: 340px; }
+    }
+
+    /* ─── VISÃO ───────────────────────────────────────────────────── */
+    #visao {
+      background: var(--navy-mid);
+      padding: 108px 0;
+    }
+
+    .visao-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .visao-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.60;
+      color: var(--off-white);
+      margin-top: 32px;
+    }
+
+    .visao-quote strong { color: var(--gold); font-style: normal; font-weight: 400; }
+
+    /* ─── ATUAÇÃO ─────────────────────────────────────────────────── */
+    #atuacao { background: var(--off-white); }
+
+    .atuacao-hd { margin-bottom: 80px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--gold-border);
+      border: 1px solid var(--gold-border);
+    }
+
+    @media (max-width: 1100px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width:  600px) { .cards { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--off-white);
+      padding: 52px 40px 48px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.35s var(--ease);
+    }
+    .card:hover { background: #E9E6E0; }
+
+    .card-n {
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.85rem;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .card-lead {
+      font-size: 0.83rem;
+      line-height: 1.80;
+      color: var(--stone);
+      margin-bottom: 32px;
+    }
+
+    .services {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 32px;
+    }
+
+    .services li {
+      font-size: 0.79rem;
+      line-height: 1.55;
+      color: var(--charcoal);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .services li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 10px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .card-close {
+      font-size: 0.78rem;
+      line-height: 1.75;
+      color: var(--stone);
+      padding-top: 22px;
+      border-top: 1px solid var(--gold-border);
+      margin-bottom: 36px;
+    }
+
+    .card-link {
+      font-family: var(--sans);
+      font-size: 0.67rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s var(--ease);
+    }
+    .card-link::after { content: '→'; transition: transform 0.3s; }
+    .card-link:hover { gap: 14px; }
+
+    /* ─── TRAJETÓRIA ──────────────────────────────────────────────── */
+    #trajetoria { background: var(--warm-white); }
+
+    .traj-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 120px;
+      align-items: start;
+    }
+
+    .traj-sticky { position: sticky; top: 128px; }
+
+    .traj-paras { display: flex; flex-direction: column; gap: 26px; }
+    .traj-paras p strong { color: var(--navy); font-weight: 500; }
+
+    @media (max-width: 960px) {
+      .traj-grid { grid-template-columns: 1fr; gap: 52px; }
+      .traj-sticky { position: static; }
+    }
+
+    /* ─── FORMAÇÃO ────────────────────────────────────────────────── */
+    #formacao { background: var(--navy); }
+
+    .formacao-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 120px;
+      align-items: start;
+    }
+
+    .formacao-sticky { position: sticky; top: 128px; }
+
+    .edu-list { display: flex; flex-direction: column; }
+
+    .edu {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 28px;
+      align-items: start;
+      padding: 38px 0;
+      border-bottom: 1px solid rgba(201,169,97,0.12);
+    }
+    .edu:first-child { border-top: 1px solid rgba(201,169,97,0.12); }
+
+    .edu-abbr {
+      font-family: var(--serif);
+      font-size: 0.7rem;
+      color: rgba(201,169,97,0.45);
+      letter-spacing: 0.06em;
+      padding-top: 4px;
+      text-transform: uppercase;
+    }
+
+    .edu-deg {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      font-weight: 400;
+      color: var(--off-white);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .edu-inst {
+      font-family: var(--sans);
+      font-size: 0.79rem;
+      font-weight: 300;
+      color: rgba(248,247,244,0.40);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 960px) {
+      .formacao-grid { grid-template-columns: 1fr; gap: 52px; }
+      .formacao-sticky { position: static; }
+    }
+
+    /* ─── CONTATO ─────────────────────────────────────────────────── */
+    #contato { background: var(--off-white); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 120px;
+      align-items: start;
+    }
+
+    .contato-sticky { position: sticky; top: 128px; }
+
+    .contato-note {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--stone);
+      margin-top: 20px;
+    }
+
+    .contact-info {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cinfo {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gold-border);
+    }
+
+    .cinfo-lbl {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .cinfo-val {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--stone);
+    }
+
+    /* Form */
+    form { display: flex; flex-direction: column; }
+
+    .frow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 600px) { .frow { grid-template-columns: 1fr; } }
+
+    .fg {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 28px;
+    }
+
+    label {
+      font-family: var(--sans);
+      font-size: 0.61rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    input, textarea, select {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(45,45,45,0.18);
+      padding: 10px 0;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.3s var(--ease);
+      -webkit-appearance: none;
+    }
+    input:focus, textarea:focus, select:focus { border-bottom-color: var(--gold); }
+    input::placeholder, textarea::placeholder { color: rgba(139,134,128,0.45); }
+    textarea { resize: none; height: 96px; }
+
+    .ctx-label {
+      font-family: var(--sans);
+      font-size: 0.61rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .radio-g {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .radio-opt { position: relative; }
+    .radio-opt input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+    .radio-opt label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      border: 1px solid rgba(139,134,128,0.22);
+      padding: 13px 18px;
+      display: block;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .radio-opt input[type="radio"]:checked + label {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    .radio-opt label:hover { border-color: var(--gold); color: var(--gold); }
+
+    .check-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin: 24px 0 40px;
+    }
+
+    .check-wrap input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      border: 1px solid rgba(139,134,128,0.35);
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: var(--gold);
+    }
+
+    .check-wrap label {
+      font-size: 0.74rem;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+
+    .success {
+      display: none;
+      padding: 36px;
+      border: 1px solid var(--gold-border);
+      text-align: center;
+    }
+
+    .success p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 960px) {
+      .contato-grid { grid-template-columns: 1fr; gap: 64px; }
+      .contato-sticky { position: static; }
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 88px 0 52px;
+    }
+
+    .footer-cols {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(201,169,97,0.10);
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 760px) { .footer-cols { grid-template-columns: 1fr; gap: 40px; } }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--off-white);
+      margin-bottom: 14px;
+    }
+    .footer-logo em { font-style: normal; color: var(--gold); }
+
+    .footer-blurb {
+      font-size: 0.8rem;
+      line-height: 1.80;
+      color: rgba(248,247,244,0.35);
+    }
+
+    .ft-head {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .ft-links { display: flex; flex-direction: column; gap: 12px; }
+    .ft-links a {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(248,247,244,0.38);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .ft-links a:hover { color: rgba(248,247,244,0.82); }
+
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.70rem;
+      color: rgba(248,247,244,0.22);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-oab {
+      font-size: 0.70rem;
+      color: rgba(201,169,97,0.35);
+      letter-spacing: 0.06em;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Rodrigo Orlandini",
+        "jobTitle": "Advogado | Mediador | Consultor em Resolução de Conflitos",
+        "description": "Especialista em direito antitruste, resolução de conflitos e psicanálise aplicada.",
+        "alumniOf": [
+          { "@type": "EducationalOrganization", "name": "Pepperdine University — Straus Institute for Dispute Resolution" },
+          { "@type": "EducationalOrganization", "name": "Fundação Getulio Vargas — FGV-SP" }
+        ],
+        "knowsAbout": ["Direito Antitruste", "Mediação", "Resolução de Conflitos", "Psicanálise", "Advocacia Resolutiva"]
+      },
+      {
+        "@type": "LegalService",
+        "name": "Rodrigo Orlandini — Advocacia Resolutiva",
+        "description": "Advocacia Resolutiva: soluções inteligentes para conflitos e questões jurídicas complexas antes do judiciário.",
+        "url": "https://rodrigoorlandini.com.br",
+        "areaServed": "BR",
+        "serviceType": ["Advocacia Antitruste", "Mediação", "Resolução de Conflitos", "Consultoria Jurídica Estratégica"]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ════════════════════════ HEADER ════════════════════════════ -->
+  <header id="hdr">
+    <div class="container">
+      <a href="#hero" class="logo">Rodrigo <em>Orlandini</em></a>
+      <button class="hamburger" id="mBtn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mNav">
+        <a href="#conceito">Advocacia Resolutiva</a>
+        <a href="#quem-e">Quem Sou</a>
+        <a href="#atuacao">Atuação</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato" class="hdr-cta">Conversar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ════════════════════════ HERO ══════════════════════════════ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-wrap">
+
+        <div>
+          <p class="hero-eyebrow r">Advocacia Resolutiva</p>
+          <h1 class="hero-h1 r d1">
+            E se a melhor solução para um problema complexo <em>não estivesse</em> no tribunal?
+          </h1>
+          <p class="hero-sub r d2">
+            Há mais de 20 anos, Rodrigo Orlandini integra direito antitruste, resolução de conflitos e psicanálise para resolver questões que outros profissionais não conseguem destravar — antes, e melhor, que o judiciário.
+          </p>
+          <div class="hero-actions r d3">
+            <a href="#contato" class="btn btn--fill">Agendar uma conversa reservada</a>
+            <a href="#conceito" class="ghost-link">Conheça a abordagem →</a>
+          </div>
+        </div>
+
+        <div class="hero-panel r d2">
+          <svg viewBox="0 0 500 560" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="32" y="32" width="436" height="496" stroke="rgba(201,169,97,0.14)" stroke-width="1"/>
+            <rect x="68" y="68" width="364" height="424" stroke="rgba(201,169,97,0.07)" stroke-width="1"/>
+            <line x1="32" y1="280" x2="468" y2="280" stroke="rgba(201,169,97,0.16)" stroke-width="1"/>
+            <line x1="250" y1="32" x2="250" y2="528" stroke="rgba(201,169,97,0.09)" stroke-width="1"/>
+            <circle cx="250" cy="280" r="72" stroke="rgba(201,169,97,0.10)" stroke-width="1" fill="none"/>
+            <circle cx="250" cy="280" r="5" fill="rgba(201,169,97,0.45)"/>
+            <circle cx="250" cy="280" r="2" fill="rgba(201,169,97,0.85)"/>
+            <path d="M32 72 L32 32 L72 32" stroke="rgba(201,169,97,0.38)" stroke-width="1.5" fill="none"/>
+            <path d="M428 32 L468 32 L468 72" stroke="rgba(201,169,97,0.38)" stroke-width="1.5" fill="none"/>
+            <path d="M468 488 L468 528 L428 528" stroke="rgba(201,169,97,0.38)" stroke-width="1.5" fill="none"/>
+            <path d="M72 528 L32 528 L32 488" stroke="rgba(201,169,97,0.38)" stroke-width="1.5" fill="none"/>
+            <!-- fine diagonals -->
+            <line x1="32" y1="32" x2="468" y2="528" stroke="rgba(201,169,97,0.04)" stroke-width="1"/>
+            <line x1="468" y1="32" x2="32" y2="528" stroke="rgba(201,169,97,0.04)" stroke-width="1"/>
+            <!-- horizontal tick marks -->
+            <line x1="32" y1="168" x2="68" y2="168" stroke="rgba(201,169,97,0.22)" stroke-width="1"/>
+            <line x1="432" y1="168" x2="468" y2="168" stroke="rgba(201,169,97,0.22)" stroke-width="1"/>
+            <line x1="32" y1="392" x2="68" y2="392" stroke="rgba(201,169,97,0.22)" stroke-width="1"/>
+            <line x1="432" y1="392" x2="468" y2="392" stroke="rgba(201,169,97,0.22)" stroke-width="1"/>
+          </svg>
+          <div class="hero-aside">
+            <p>Soluções inteligentes para problemas complexos — com mais eficiência, menos desgaste e mais resultado.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ CONCEITO ══════════════════════════ -->
+  <section id="conceito">
+    <div class="container">
+      <div class="conceito-body">
+        <span class="rule rule--center r"></span>
+        <span class="label r">O Conceito</span>
+        <h2 class="display display--lg r d1" style="margin-top: 16px;">Advocacia Resolutiva</h2>
+
+        <blockquote class="conceito-quote r d2">
+          Ao advogado cabe usar conhecimento, experiência e habilidades para gerar estratégias que permitam a solução de problemas complexos — dentro dos interesses e possibilidades do cliente.
+        </blockquote>
+
+        <div class="conceito-paras r d3">
+          <p class="body">Essas soluções, na maior parte das vezes, alcançam melhores resultados com negociações assistidas ou mediadas, <strong>sem a necessidade do sistema judiciário estatal</strong>, que deve ser o último recurso.</p>
+          <p class="body" style="margin-top: 20px;">O mercado brasileiro já conta com profissionais especialistas em advocacia estratégica, com habilidades de gerenciamento e resolução de conflitos, capazes de manejar procedimentos mais eficientes, rápidos e econômicos que os tradicionalmente utilizados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ COMO ATUO ═════════════════════════ -->
+  <section id="como-atuo">
+    <div class="container">
+      <div class="atuo-grid">
+
+        <div class="atuo-sticky">
+          <span class="rule r"></span>
+          <span class="label r">Como Atuo</span>
+          <h2 class="display display--lg atuo-title r d1">Tratamentos mais inteligentes para situações complexas</h2>
+        </div>
+
+        <div>
+          <div class="atuo-paras">
+            <p class="body r">As relações pessoais, sociais e empresariais geram, em determinados momentos, situações difíceis, complexas e às vezes dolorosas — cujas soluções tornam-se impossíveis sem a ajuda de um profissional preparado.</p>
+            <p class="body r d1">Para resolver <strong>dores relacionais</strong> (desejo–necessidade–direitos–deveres), busca-se um advogado. Assim como, para <strong>dores físicas</strong> (saúde–doença–sintomas–tratamentos), busca-se um médico.</p>
+            <p class="body r d2">Médicos e advogados darão o melhor de si para curar a "doença" e libertar o paciente/cliente daquela dor, com <strong>máxima eficiência e menores efeitos colaterais</strong>.</p>
+            <p class="body r d2">Os melhores profissionais são aqueles que têm conhecimento, experiência e acesso aos tratamentos mais sofisticados, menos invasivos e mais eficientes.</p>
+          </div>
+
+          <div class="highlight-box r d3">
+            <p>Assim como o procedimento cirúrgico deve ser a última opção para o médico, a ação judicial deve ser a última opção para o advogado.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ QUEM É ════════════════════════════ -->
+  <section id="quem-e">
+    <div class="container">
+      <div class="quem-grid">
+
+        <div class="portrait r">
+          <div class="portrait-outer">
+            <span class="corner corner--tl"></span>
+            <span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span>
+            <span class="corner corner--br"></span>
+            <div class="portrait-inner">
+              <span class="monogram">RO</span>
+            </div>
+            <span class="portrait-caption">Rodrigo Orlandini</span>
+          </div>
+        </div>
+
+        <div class="quem-text">
+          <span class="rule r"></span>
+          <span class="label r">Quem Sou</span>
+          <h2 class="display display--lg display--light r d1" style="margin-top: 16px;">Um conselheiro excepcional para situações que exigem mais do que técnica jurídica</h2>
+
+          <div class="quem-body">
+            <p class="body body--light r d2">Rodrigo é especialista em resolução de conflitos com mais de <strong>20 anos de atuação</strong> como advogado em direito antitruste/concorrencial, assessor de governos, consultor para assuntos estratégicos, psicanalista e mediador em casos nacionais e internacionais — nos mais diversos níveis de complexidade.</p>
+            <p class="body body--light r d2">Sua formação em direito e psicanálise, somada ao <strong>mestrado em Resolução de Conflitos pelo Straus Institute da Pepperdine University (EUA)</strong>, faz dele um conselheiro excepcional para empresas, grupos, famílias e indivíduos.</p>
+            <p class="body body--light r d3">Tendo viajado por diferentes culturas, Rodrigo valoriza semelhanças, compreende diferenças e gera níveis ótimos de comunicação para a solução de problemas — por mais difíceis que possam parecer.</p>
+          </div>
+
+          <div class="pillars r d3">
+            <div class="pillar">
+              <span class="pillar-num">01</span>
+              <span class="pillar-text"><strong>Direito Antitruste e Concorrencial</strong> — técnico, regulatório, alta complexidade</span>
+            </div>
+            <div class="pillar">
+              <span class="pillar-num">02</span>
+              <span class="pillar-text"><strong>Resolução de Conflitos</strong> — LLM pelo Straus Institute, Pepperdine University (EUA)</span>
+            </div>
+            <div class="pillar">
+              <span class="pillar-num">03</span>
+              <span class="pillar-text"><strong>Psicanálise</strong> — compreensão das camadas inconscientes do conflito</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ VISÃO ═════════════════════════════ -->
+  <section id="visao">
+    <div class="container">
+      <div class="visao-wrap">
+        <span class="rule rule--center r"></span>
+        <span class="label r" style="color: rgba(201,169,97,0.65);">Nossa Visão</span>
+        <blockquote class="visao-quote r d1">
+          A advocacia resolutiva e a mediação de conflitos, quando bem estruturadas, pavimentam caminhos para novas perspectivas e geram <strong>possibilidades de solução</strong> que não seriam alcançadas de forma independente entre as partes envolvidas.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ ATUAÇÃO ═══════════════════════════ -->
+  <section id="atuacao">
+    <div class="container">
+      <div class="atuacao-hd">
+        <span class="rule r"></span>
+        <span class="label r">Para Quem Trabalho</span>
+        <h2 class="display display--lg r d1" style="margin-top: 16px;">Quatro frentes de atuação,<br/>uma abordagem integrada</h2>
+      </div>
+
+      <div class="cards">
+
+        <!-- NEGÓCIOS -->
+        <div class="card r">
+          <span class="card-n">01 —</span>
+          <h3 class="card-title">Negócios</h3>
+          <p class="card-lead">Assessoria estratégica para tomada de decisões em empresas, atuando diretamente com presidências, conselhos, diretorias, parceiros, equipes e terceiros.</p>
+          <ul class="services">
+            <li>Advocacia e consultoria em conflitos intra/inter empresas</li>
+            <li>Atos de concentração, investigações antitruste e compliance</li>
+            <li>Estratégias para acordos privados e públicos</li>
+            <li>Facilitação em processos de tomada de decisões</li>
+            <li>Mediação inter/intra empresas</li>
+            <li>Gerenciamento de crises com múltiplas partes</li>
+            <li>Ouvidoria e Ombudsman corporativo</li>
+          </ul>
+          <p class="card-close">Atuo de forma independente ou em conjunto com escritórios que já atendem o cliente, gerando sinergias para resolver conflitos já judicializados ou sem solução judicial viável.</p>
+          <a href="#contato" class="card-link">Quero conversar sobre isso</a>
+        </div>
+
+        <!-- GRUPOS -->
+        <div class="card r d1">
+          <span class="card-n">02 —</span>
+          <h3 class="card-title">Grupos</h3>
+          <p class="card-lead">Orientação para processos de tomada de decisão que resultem em acordos viáveis, com expectativas realistas e responsabilidades estabelecidas em contratos duráveis.</p>
+          <ul class="services">
+            <li>Consultoria para resolução de conflitos</li>
+            <li>Serviços de mediação</li>
+            <li>Facilitação de conversas difíceis</li>
+            <li>Suporte e estratégias para negociações</li>
+            <li>Gerenciamento de crises inter/intra grupos</li>
+          </ul>
+          <p class="card-close">Ao gerarmos ambientes adequados, grupos e equipes elevam sua capacidade de comunicação e desenvolvem as estratégias necessárias para resolver diferenças e alcançar seus objetivos.</p>
+          <a href="#contato" class="card-link">Quero conversar sobre isso</a>
+        </div>
+
+        <!-- FAMÍLIAS -->
+        <div class="card r d2">
+          <span class="card-n">03 —</span>
+          <h3 class="card-title">Famílias</h3>
+          <p class="card-lead">Apoio especializado em momentos sensíveis da vida familiar, com escuta profissional e estratégia para preservar relações e patrimônio.</p>
+          <ul class="services">
+            <li>Orientação individual</li>
+            <li>Apoio a casais e relacionamentos</li>
+            <li>Mediação de divórcios e inventários</li>
+            <li>Desenvolvimento de planos parentais</li>
+            <li>Facilitação de acordos patrimoniais</li>
+          </ul>
+          <p class="card-close">Os integrantes do grupo familiar são auxiliados a entender a complexidade dos problemas e a reconhecer os gatilhos emocionais que geram conflitos, transformando padrões em valor.</p>
+          <a href="#contato" class="card-link">Quero conversar sobre isso</a>
+        </div>
+
+        <!-- INDIVÍDUOS -->
+        <div class="card r d3">
+          <span class="card-n">04 —</span>
+          <h3 class="card-title">Indivíduos</h3>
+          <p class="card-lead">Assessoria em dificuldades para tomada de decisões ou em momentos de conflitos pessoais e relacionais que demandam decisões importantes para a vida.</p>
+          <ul class="services">
+            <li>Aconselhamento e mentoria estratégica</li>
+            <li>Reuniões individuais de escuta e diagnóstico</li>
+            <li>Implementação de processos decisórios</li>
+            <li>Suporte a negociações com terceiros</li>
+          </ul>
+          <p class="card-close">Com maior compreensão dos próprios conflitos, a pessoa os transforma em oportunidades. O domínio dos processos pessoais de tomada de decisão resulta em uma nova forma de vida.</p>
+          <a href="#contato" class="card-link">Quero conversar sobre isso</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ TRAJETÓRIA ════════════════════════ -->
+  <section id="trajetoria">
+    <div class="container">
+      <div class="traj-grid">
+
+        <div class="traj-sticky">
+          <span class="rule r"></span>
+          <span class="label r">Trajetória</span>
+          <h2 class="display display--lg r d1" style="margin-top: 16px;">Uma carreira na confluência entre estratégia, conflito e transformação</h2>
+        </div>
+
+        <div class="traj-paras">
+          <p class="body r">Rodrigo Orlandini construiu uma carreira sólida que começou como consultor de negócios em duas das maiores empresas de auditoria e consultoria do mundo — <strong>Andersen e Deloitte</strong> — e se desenvolveu em ambientes empresariais, governamentais e sociais diversos.</p>
+          <p class="body r d1"><strong>Como advogado antitruste/concorrencial</strong>, atua nas mais complexas negociações, apresentações de atos de concentração para autoridades antitruste, investigações de infrações à ordem econômica, compliance em governança antitruste e anticorrupção, acordos de leniência e termos de cessação de condutas.</p>
+          <p class="body r d2"><strong>Como conselheiro em resolução de conflitos</strong>, orienta empresas, grupos, famílias e indivíduos no desenvolvimento de estratégias para negociações, mediações, gerenciamento de crises e mentoria para tomada de decisões — além de oferecer serviços de ouvidoria para empresas e escritórios.</p>
+          <p class="body r d3">Uma trajetória que une o rigor técnico do direito, a profundidade analítica da psicanálise e a prática internacional da mediação — três dimensões raramente encontradas em um único profissional.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ FORMAÇÃO ══════════════════════════ -->
+  <section id="formacao">
+    <div class="container">
+      <div class="formacao-grid">
+
+        <div class="formacao-sticky">
+          <span class="rule r"></span>
+          <span class="label r" style="color: rgba(201,169,97,0.65);">Formação</span>
+          <h2 class="display display--lg display--light r d1" style="margin-top: 16px;">Credenciais que constroem autoridade</h2>
+          <p class="body body--light r d2" style="margin-top: 22px; font-size: 0.85rem;">Uma formação multidisciplinar, construída em instituições de referência mundial, que sustenta uma prática verdadeiramente integrativa.</p>
+        </div>
+
+        <div class="edu-list">
+          <div class="edu r">
+            <span class="edu-abbr">LLM</span>
+            <div>
+              <h3 class="edu-deg">Resolução de Conflitos</h3>
+              <p class="edu-inst">Straus Institute for Dispute Resolution — Pepperdine University, EUA</p>
+            </div>
+          </div>
+          <div class="edu r d1">
+            <span class="edu-abbr">Pós</span>
+            <div>
+              <h3 class="edu-deg">Psicanálise</h3>
+              <p class="edu-inst">Núcleo de Pesquisas Psicanalíticas de São Paulo</p>
+            </div>
+          </div>
+          <div class="edu r d1">
+            <span class="edu-abbr">Cert</span>
+            <div>
+              <h3 class="edu-deg">Mediação Corporativa Internacional</h3>
+              <p class="edu-inst">CMAP — Centre de Médiation et d'Arbitrage de Paris / Câmara de Comércio Brasil-França</p>
+            </div>
+          </div>
+          <div class="edu r d2">
+            <span class="edu-abbr">LLM</span>
+            <div>
+              <h3 class="edu-deg">Direito Concorrencial e Regulatório</h3>
+              <p class="edu-inst">Fundação Getulio Vargas — FGV-SP</p>
+            </div>
+          </div>
+          <div class="edu r d2">
+            <span class="edu-abbr">Grad</span>
+            <div>
+              <h3 class="edu-deg">Ciências Jurídicas e Sociais</h3>
+              <p class="edu-inst">Pontifícia Universidade Católica de Campinas — PUC-Campinas</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ CONTATO ═══════════════════════════ -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-grid">
+
+        <div class="contato-sticky">
+          <span class="rule r"></span>
+          <span class="label r">Contato</span>
+          <h2 class="display display--lg r d1" style="margin-top: 16px;">Vamos conversar</h2>
+          <p class="contato-note r d2">Toda primeira conversa é reservada e sem compromisso. Conte brevemente o contexto — retornarei pessoalmente em até 48 horas.</p>
+
+          <div class="contact-info r d3">
+            <div class="cinfo">
+              <p class="cinfo-lbl">E-mail</p>
+              <p class="cinfo-val">contato@rodrigoorlandini.com.br</p>
+            </div>
+            <div class="cinfo">
+              <p class="cinfo-lbl">Localização</p>
+              <p class="cinfo-val">São Paulo, SP — Brasil</p>
+            </div>
+            <div class="cinfo">
+              <p class="cinfo-lbl">LinkedIn</p>
+              <p class="cinfo-val">linkedin.com/in/rodrigo-orlandini</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <form id="cForm" novalidate>
+            <!-- Honeypot -->
+            <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+
+            <div class="frow r">
+              <div class="fg">
+                <label for="nome">Nome completo *</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
+              </div>
+              <div class="fg">
+                <label for="email">E-mail profissional *</label>
+                <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+              </div>
+            </div>
+
+            <div class="frow r d1">
+              <div class="fg">
+                <label for="tel">Telefone (com DDD) *</label>
+                <input type="tel" id="tel" name="tel" required placeholder="(11) 9 0000-0000" />
+              </div>
+              <div class="fg">
+                <label for="org">Empresa / Organização</label>
+                <input type="text" id="org" name="org" placeholder="Opcional" />
+              </div>
+            </div>
+
+            <div class="r d1">
+              <span class="ctx-label">Em qual contexto você busca apoio? *</span>
+              <div class="radio-g">
+                <div class="radio-opt">
+                  <input type="radio" id="rn" name="ctx" value="Negócios"/>
+                  <label for="rn">Negócios</label>
+                </div>
+                <div class="radio-opt">
+                  <input type="radio" id="rg" name="ctx" value="Grupos"/>
+                  <label for="rg">Grupos</label>
+                </div>
+                <div class="radio-opt">
+                  <input type="radio" id="rf" name="ctx" value="Família"/>
+                  <label for="rf">Família</label>
+                </div>
+                <div class="radio-opt">
+                  <input type="radio" id="ri" name="ctx" value="Individual"/>
+                  <label for="ri">Individual</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="fg r d2">
+              <label for="desafio">Descreva brevemente o desafio *</label>
+              <textarea id="desafio" name="desafio" required placeholder="Sem entrar em detalhes confidenciais — o que está em jogo, há quanto tempo e o que já foi tentado."></textarea>
+            </div>
+
+            <div class="check-wrap r d2">
+              <input type="checkbox" id="lgpd" name="lgpd" required/>
+              <label for="lgpd">Autorizo o contato e o tratamento dos meus dados conforme a Política de Privacidade.</label>
+            </div>
+
+            <div class="r d3">
+              <button type="submit" class="btn btn--fill">Enviar mensagem reservada</button>
+            </div>
+          </form>
+
+          <div class="success" id="ok" role="alert">
+            <p>Recebi sua mensagem. Retornarei pessoalmente em até 48 horas, no canal que você indicou.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ FOOTER ════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-cols">
+        <div>
+          <p class="footer-logo">Rodrigo <em>Orlandini</em></p>
+          <p class="footer-blurb">Advocacia Resolutiva. Especialista em direito antitruste, resolução de conflitos e psicanálise aplicada ao gerenciamento de crises e tomada de decisões complexas.</p>
+        </div>
+        <div>
+          <p class="ft-head">Navegação</p>
+          <div class="ft-links">
+            <a href="#conceito">Advocacia Resolutiva</a>
+            <a href="#quem-e">Quem Sou</a>
+            <a href="#atuacao">Atuação</a>
+            <a href="#trajetoria">Trajetória</a>
+            <a href="#formacao">Formação</a>
+            <a href="#contato">Contato</a>
+          </div>
+        </div>
+        <div>
+          <p class="ft-head">Contato</p>
+          <div class="ft-links">
+            <a href="mailto:contato@rodrigoorlandini.com.br">contato@rodrigoorlandini.com.br</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <p class="footer-copy">© 2026 Rodrigo Orlandini. Todos os direitos reservados.</p>
+        <p class="footer-oab">OAB/SP — Advocacia Resolutiva</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════ SCRIPTS ════════════════════════════ -->
+  <script>
+    // ── Header scroll state ──────────────────────────────────────
+    const hdr = document.getElementById('hdr');
+    const onScroll = () => hdr.classList.toggle('s', window.scrollY > 56);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ── Mobile nav ───────────────────────────────────────────────
+    const mBtn = document.getElementById('mBtn');
+    const mNav = document.getElementById('mNav');
+    mBtn.addEventListener('click', () => {
+      const open = mNav.classList.toggle('open');
+      mBtn.setAttribute('aria-expanded', String(open));
+    });
+    mNav.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => { mNav.classList.remove('open'); mBtn.setAttribute('aria-expanded','false'); })
+    );
+
+    // ── Intersection Observer (scroll reveal) ────────────────────
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } });
+    }, { threshold: 0.10 });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+    // Hero fires immediately after short delay
+    document.querySelectorAll('#hero .r').forEach((el, i) => {
+      setTimeout(() => el.classList.add('v'), 180 + i * 90);
+    });
+
+    // ── Form ─────────────────────────────────────────────────────
+    document.getElementById('cForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (this._hp && this._hp.value) return; // honeypot
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = 'Enviando…';
+      btn.disabled = true;
+      // ↳ Replace timeout with real Resend / EmailJS / Supabase call
+      setTimeout(() => {
+        this.style.display = 'none';
+        const ok = document.getElementById('ok');
+        ok.style.display = 'block';
+        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1100);
+    });
+
+    // ── Prefill context from card CTAs ───────────────────────────
+    document.querySelectorAll('.card-link').forEach(link => {
+      link.addEventListener('click', e => {
+        const card = e.target.closest('.card');
+        const title = card.querySelector('.card-title').textContent.trim();
+        const match = document.querySelector(`input[name="ctx"][value="${title}"]`) ||
+                      document.querySelector(`input[name="ctx"]`);
+        if (match) { match.checked = true; match.dispatchEvent(new Event('change')); }
+      });
+    });
+  </script>
+
+</body>
+</html>
